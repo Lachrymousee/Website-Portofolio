@@ -16,7 +16,7 @@ themeToggle.addEventListener("change", () => {
 
 // HAMBURGER MENU (MOBILE)
 const hamburger = document.getElementById("hamburger");
-const navRight = document.getElementById("navLinks").closest(".nav-right");
+const navRight = document.getElementById("navRight");
 
 hamburger.addEventListener("click", () => {
   navRight.classList.toggle("active");
