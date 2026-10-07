@@ -12,7 +12,7 @@
 }
 */
 
-/* PALET: colorhunt.co/palette/1b262c0f4c753282b8bbe1fa */
+/* PALET: colorhunt.co/palette/f5efe6e8dfcaaebdca7895b2 */
 :root {
   --bg: #f5efe6;
   --bg-alt: #e8dfca;
@@ -193,11 +193,6 @@ section[id] {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 2;
 }
-.slider .icon {
-  font-size: 0.75rem;
-  z-index: 1;
-  opacity: 0.8;
-}
 input:checked + .slider {
   background: var(--switch-on);
 }
@@ -227,7 +222,6 @@ input:checked + .slider::before {
   padding: 100px 24px 120px;
   background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
 }
-/* body.dark .hero dihapus — otomatis ikut var(--bg)/var(--bg-alt) yang sudah didefinisikan di body.dark */
 body.dark .hero {
   background: linear-gradient(135deg, #3f5169 0%, #2a2e35 100%);
 }
@@ -360,13 +354,7 @@ body.dark .hero-btn {
   }
 }
 
-/* =====================================================================
-   WAVE DIVIDERS — versi baru: SVG asli (ditanam di HTML), BUKAN CSS mask.
-   SVG memakai viewBox + preserveAspectRatio="none" sehingga PASTI melebar
-   penuh 100% mengikuti lebar section, di layar berapa pun ukurannya.
-   Warna diatur lewat class terpisah (wave-to-bg / wave-to-alt) yang
-   mengisi 'fill' path sesuai warna section BERIKUTNYA.
-   ===================================================================== */
+/* ===== WAVE DIVIDERS (SVG asli ditanam di HTML) ===== */
 .wave-divider {
   position: absolute;
   bottom: -1px;
@@ -419,15 +407,7 @@ body.dark .hero-btn {
 .section-certificates h2 {
   text-align: left;
 }
-.cert-preview iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  pointer-events: none; /* supaya hover-pop kartu tetap jalan dan iframe tidak "menelan" klik */
-}
-.section-about {
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
-}
+
 .section-skills {
   background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
 }
@@ -444,7 +424,7 @@ body.dark .hero-btn {
     var(--bg-alt) 45%,
     var(--bg) 100%
   );
-  padding-bottom: 140px; /* diperbesar dari 60px, kasih ruang napas sebelum footer */
+  padding-bottom: 140px;
 }
 
 .about-content p {
@@ -457,20 +437,20 @@ body.dark .hero-btn {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  align-items: stretch; /* pastikan kedua kartu selalu sama tinggi */
+  align-items: stretch;
 }
 
 .edu-item {
   display: flex;
-  align-items: center; /* logo & teks sejajar di tengah secara vertikal */
-  justify-content: center; /* grup logo+teks di tengah kotak secara horizontal */
+  align-items: center;
+  justify-content: center;
   gap: 16px;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-left: 4px solid var(--accent);
   border-radius: 12px;
   padding: 24px 18px;
-  min-height: 140px; /* tinggi konsisten walau jumlah baris teks beda */
+  min-height: 140px;
 }
 
 .edu-logo {
@@ -488,7 +468,7 @@ body.dark .hero-btn {
   flex-direction: column;
   justify-content: center;
   gap: 4px;
-  text-align: center; /* tiap baris teks center relatif satu sama lain */
+  text-align: center;
 }
 .edu-info h3 {
   margin-bottom: 6px;
@@ -536,99 +516,9 @@ body.dark .hero-btn {
   color: var(--text-muted);
 }
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  align-items: stretch; /* semua kartu dalam satu baris sama tinggi */
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px var(--shadow);
-}
-
-/* Area gambar/preview: ukuran SAMA di semua kartu */
-.card-media {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: var(--bg-alt);
-  flex-shrink: 0;
-}
-.card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  display: block;
-}
-/* iframe dibuat sedikit lebih besar dari kotaknya agar scrollbar bawaan ter-crop */
-.card-media iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% + 20px);
-  height: calc(100% + 20px);
-  border: 0;
-  pointer-events: none;
-}
-
-/* Area teks */
-.project-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 18px;
-}
-.project-info h3 {
-  font-size: 1rem;
-  line-height: 1.3;
-  margin-bottom: 6px;
-  min-height: calc(
-    1.3em * 2
-  ); /* ruang 2 baris, supaya baris berikutnya sejajar */
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.project-role {
-  font-family: "Lucida Bright", "Merriweather", Georgia, serif;
-  font-size: 0.9rem;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-.project-desc {
-  font-family: "Lucida Bright", "Merriweather", Georgia, serif;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-  text-align: justify;
-  text-justify: inter-word;
-}
-
-/* Link selalu menempel di dasar kartu, sejajar antar kartu */
-.project-links {
-  margin-top: auto;
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-.project-links a {
-  color: var(--accent);
-  font-family: "Brandon Grotesque", "Montserrat", sans-serif;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  display: inline-block;
-}
+/* =====================================================================
+   PROJECTS & CERTIFICATES CARDS
+   ===================================================================== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -639,7 +529,7 @@ body.dark .hero-btn {
 .project-card {
   display: flex;
   flex-direction: column;
-  height: 100%; /* pastikan kartu benar2 mengisi tinggi baris grid */
+  height: 100%;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -662,29 +552,21 @@ body.dark .hero-btn {
   object-position: top;
   display: block;
 }
-.card-media iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% + 20px);
-  height: calc(100% + 20px);
-  border: 0;
-  pointer-events: none;
-}
 
-/* Kolom teks: flex:1 supaya mengisi sisa ruang kartu */
 .project-info {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 0; /* fix supaya flex-child tidak "menolak" mengecil */
+  min-height: 0;
   padding: 18px;
 }
 
+/* Judul: clamp 2 baris. margin-bottom akhir 8px (bukan 6px) karena
+   ditimpa oleh .project-info h3 di bawah yang lebih spesifik. */
 .project-info h3 {
   font-size: 1rem;
   line-height: 1.3;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   min-height: calc(1.3em * 2);
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -692,45 +574,18 @@ body.dark .hero-btn {
   overflow: hidden;
 }
 
-.project-role {
-  font-family: "Lucida Bright", "Merriweather", Georgia, serif;
-  font-size: 0.9rem;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-/* Deskripsi: tinggi DIKUNCI 5 baris, bukan cuma dibatasi maksimal.
-   Ini kunci perbaikannya -- kartu dengan deskripsi pendek tetap
-   "mereservasi" ruang yang sama seperti kartu berdeskripsi panjang. */
+/* Deskripsi: properti dasar (warna, margin, font) diwariskan dari
+   .project-info p di bawah (lebih spesifik); di sini cukup tambahan
+   khusus untuk teks panjang (justify + line-height). */
 .project-desc {
-  font-family: "Lucida Bright", "Merriweather", Georgia, serif;
-  font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--text-muted);
-  margin-bottom: 14px;
   text-align: justify;
   text-justify: inter-word;
 }
 
-/* Tombol/link selalu di dasar kartu -- didorong via margin-top:auto */
-.project-links {
-  margin-top: auto;
-  padding-top: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.project-links a {
-  color: var(--accent);
-  font-family: "Brandon Grotesque", "Montserrat", sans-serif;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  display: inline-block;
-}
-.project-info h3 {
-  margin-bottom: 8px;
-  font-size: 1rem;
-}
+/* Berlaku untuk SEMUA <p> langsung di dalam .project-info: baik teks
+   role (tanpa class) maupun .project-desc (lebih spesifik, jadi menang
+   untuk properti yang sama-sama diset). */
 .project-info p {
   color: var(--text-muted);
   margin-bottom: 12px;
@@ -753,7 +608,7 @@ body.dark .hero-btn {
   margin-bottom: 20px;
   font-family: "Lucida Bright", Georgia, serif;
 }
-/* GRUP 1: tombol logo (LinkedIn, Instagram, CV, GitHub) */
+/* GRUP 1: tombol logo (LinkedIn, Instagram, GitHub, Linktree, CV) */
 .contact-buttons {
   display: flex;
   justify-content: center;
@@ -836,7 +691,6 @@ body.dark .hero-btn {
   z-index: 5;
 }
 .btn.hover-pop:hover,
-.contact-links a.hover-pop:hover,
 .project-info a.hover-pop:hover {
   transform: translateY(-4px) scale(1.06);
   box-shadow: 0 10px 20px var(--shadow);
@@ -887,9 +741,6 @@ body.dark .hero-btn {
 
   .hamburger {
     display: flex;
-  }
-  .education {
-    grid-template-columns: 1fr;
   }
   .hero h1 {
     font-size: 1.8rem;
